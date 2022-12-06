@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .content{
+        nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 5%;
+            background-color: rgb(239, 239, 239);
+            box-shadow: 0px 4px 2px 1px rgba(0,0,0,0.34);
+            padding-bottom: 5%;
+            a{
+                width: 50%;
+                img{
+                    width: 70%;
+                }
+            }
+            .logo-burger{
+                width: 12vw;
+                height: 12vw;
+            }
+        }
+        .carrousel{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            .fl_gr{
+                width: 30vw;
+                background-color: transparent;
+                border: none;
+                img{
+                    width: 50%;
+                }
+                &:hover{
+                    opacity: 0.33;
+                }
+                &:active{
+                    filter: blur(5px);
+                    transition-duration: 10ms;
+                }
+            }
+            .item_carrousel{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 80%;
+                img{
+                    width: 70%;
+                    margin: auto;
+                }
+                p{
+                    font-family: 'Roboto', sans-serif;
+                    margin: auto;
+                    font-weight: 500;
+                }
+            }
+            
+        }
+        .choix{
+            width: 100%;
+            margin-top: 15%;
+            display: flex;
+            justify-content: space-around;
+            .fl_pt{
+                width: 20%;
+                background-color: transparent;
+                border: none;
+                img{
+                    width: 30%;
+                }
+                &:hover{
+                    opacity: 0.33;
+                }
+                &:active{
+                    filter: blur(5px);
+                    transition-duration: 10ms;
+                }
+            }
+            .menu{
+                width: 30%;
+                font-weight: 600;
+                font-family: 'Roboto', sans-serif;
+                background-color:#d5ded8;
+                border-radius:28px;
+                border:1px solid #909b9e;
+                display:inline-block;
+                cursor:pointer;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none;
+                &:hover{
+                    background-color:#abadaa;
+                }
+                &:active{
+                    position:relative;
+                    top:1px;
+                }
+            }
+        }
+        .all{
+            width: 100%;
+            margin-top: 15%;
+            display: flex;
+            justify-content: center;
+            .article{
+                width: 80%;
+                background-color: rgba(243, 243, 243, 0.878);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img{
+                    background-color: rgb(255, 255, 255);
+                    margin-top: 10%;
+                    margin-bottom: 5%;
+                    padding-top: 5%;
+                    padding-bottom: 5%;
+                    width: 80%;
+                }
+                p{
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 150%;
+                    margin: 0;
+                    margin-bottom: 5%;
+                }
+                button{
+                    width: 30%;
+                    font-weight: 600;
+                    font-family: 'Roboto', sans-serif;
+                    background-color:#d5ded8;
+                    border-radius:28px;
+                    border:1px solid #909b9e;
+                    display:inline-block;
+                    cursor:pointer;
+                    font-size:17px;
+                    padding:16px 31px;
+                    text-decoration:none;
+                    padding: 0;
+                    padding-top: 5%;
+                    padding-bottom: 5%;
+                    &:hover{
+                        background-color:#abadaa;
+                    }
+                    &:active{
+                        position:relative;
+                        top:1px;
+                    }
+                }
+            }
+        }
+    }
+}
