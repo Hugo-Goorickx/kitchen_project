@@ -1,3 +1,4 @@
+@import url(./_mixins.scss);
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 body {
   background-color: rgb(255, 255, 255);
@@ -19,11 +20,14 @@ body .content nav a {
   width: 50%;
 }
 body .content nav a img {
-  width: 70%;
+  width: 90%;
 }
 body .content nav .logo-burger {
   width: 12vw;
   height: 12vw;
+}
+body .content nav .menu_desktop {
+  display: none;
 }
 body .content .carrousel {
   width: 100%;
@@ -113,6 +117,7 @@ body .content .all .article {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 7%;
 }
 body .content .all .article img {
   background-color: rgb(255, 255, 255);
@@ -150,4 +155,92 @@ body .content .all .article button:hover {
 body .content .all .article button:active {
   position: relative;
   top: 1px;
+}
+body .content footer {
+  width: 100%;
+  background-color: lightgray;
+  margin-top: 10%;
+  font-family: "Roboto", sans-serif;
+}
+body .content footer .footer_logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+body .content footer .footer_logo img {
+  width: 50%;
+}
+body .content footer .follow {
+  width: 100%;
+}
+body .content footer .follow p {
+  font-size: large;
+  text-align: center;
+  font-weight: 700;
+}
+body .content footer .follow ul {
+  width: 80%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+body .content footer .follow ul li {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+body .content footer .follow ul li a img {
+  width: 5vw;
+}
+body .content footer .follow ul li a:hover {
+  filter: brightness(0) invert(1);
+}
+body .content footer .support {
+  display: flex;
+  flex-direction: column;
+}
+body .content footer .support p {
+  font-size: large;
+  text-align: center;
+  font-weight: 700;
+}
+body .content footer .support ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  align-items: center;
+  line-height: 170%;
+}
+body .content footer .support ul a {
+  text-decoration: none;
+  color: black;
+}
+body .content footer .support ul a:hover {
+  color: #fc6612;
+}
+body .content footer .contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+body .content footer .contact p {
+  font-size: large;
+  text-align: center;
+  font-weight: 700;
+}
+body .content footer .contact ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 0;
+  align-items: center;
+  line-height: 170%;
+}
+body .content footer .contact ul a {
+  text-decoration: none;
+  color: black;
 }/*# sourceMappingURL=style.css.map */
