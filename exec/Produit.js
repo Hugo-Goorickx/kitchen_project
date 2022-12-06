@@ -1,5 +1,16 @@
-class Produit
+export class Produit
 {
+    /**
+     * Consrtucteur de la classe
+     * Parametres:
+     *      name        =>  Nom du produit
+     *      category    =>  Liste des categories aux quelles le produit appartient
+     *      price       =>  Prix du produit
+     *      img         =>  Lien vers l'image du produit
+     * 
+     * Return:
+     *      Rien
+     */
     constructor (name, category, price, img)
     {
         this.name = name;
@@ -8,109 +19,88 @@ class Produit
         this.img = img;
     }
 
+    /**
+     * Fonction creant une balise avec le txt a l'interieur
+     * Details:
+     * 1    creer une balise
+     * 2    creer du text
+     * 3    ajoute le text a la balise
+     * 4    revoit la balise
+     * 
+     * Parametres:
+     *      balise  => Tag de la balise
+     *      txt     => Interieur de la balise
+     * 
+     * Return:
+     *      Revoit la balise cree
+     */
     creatBalise(balise, txt)
     {
-        let out_balise = document.createElement(balise);
-        let content = document.createTextNode(txt);
-        out_balise.appendChild(content);
-        return out_balise;
+        let out_balise = document.createElement(balise); //1
+        let content = document.createTextNode(txt); //2
+        out_balise.appendChild(content); //3
+        return out_balise; //4
     }
 
+    /**
+     * Genere un carte pour un produit
+     * Details:
+     * 1    Definition ou on ajoutera la carte
+     * 2    Creation de la balise et ajout de la classe article
+     * 3    Creation de la balise img et ajoute la src et l'alt
+     * 4    Creations des balises pour le nom, le prix et le button
+     * 5    Ajout des balises img, name_prod, price_prod, button
+     * 6    Ajout de la div globale
+     * 
+     * Parametres:
+     *      Rien
+     * 
+     * Return:
+     *      Rien
+     */
     gen_card()
     {
-        let start = document.getElementsByClassName("all")[0];
-
-        let global_div = document.createElement('div');
+        let start = document.getElementsByClassName("all")[0]; //1
+        let global_div = document.createElement('div'); //2
         global_div.classList.add('article');
-
-        let img = document.createElement('img');
+        let img = document.createElement('img'); //3
         img.setAttribute("src", this.img);
         img.setAttribute("alt", this.name);
-        
-        let name_prod = this.creatBalise('p', this.name);
+        let name_prod = this.creatBalise('p', this.name); //4
         let price_prod = this.creatBalise('p', this.price + "$");
         let button = this.creatBalise('button', 'Order');
-        
-        global_div.append(img, name_prod, price_prod, button);
-
-        start.appendChild(global_div);
-
-        console.log(global_div);
+        global_div.append(img, name_prod, price_prod, button); //5
+        start.appendChild(global_div); //6
     }
     
+    /**
+     * Genere une image pour un produit
+     * Details:
+     * 1    Definition ou on ajoutera l'image
+     * 2    Position du dernier bouton
+     * 3    Creation de la balise et ajout de la classe item_carrousel
+     * 4    Creation de la balise img et ajoute la src et l'alt
+     * 5    Creation d'une balise
+     * 6    Ajout des balises img, name_prod
+     * 7    Ajoute global_div avant where_we_add
+     * 
+     * Parametres:
+     *      Rien
+     * 
+     * Return:
+     *      Rien
+     */
     gen_picture()
     {
-        let start = document.getElementsByClassName('carrousel')[0];
-        
-        let length = start.getElementsByTagName('button').length;
-        let where_we_add = start.getElementsByTagName('button')[length - 1];
-
-        let global_div = document.createElement('div');
+        let start = document.getElementsByClassName('carrousel')[0]; //1
+        let where_we_add = start.getElementsByTagName('button')[start.getElementsByTagName('button').length - 1]; //2
+        let global_div = document.createElement('div'); //3
         global_div.classList.add('item_carrousel');
-
-        let img = document.createElement('img');
+        let img = document.createElement('img'); //4
         img.setAttribute("src", this.img);
-
-        let name_prod = this.creatBalise('p', this.name);
-        // let coca = document.createElement('p');
-        // let text = document.createTextNode(this.name);
-        // coca.appendChild(text);
-
-        global_div.append(img, name_prod);
-
-        start.insertBefore(global_div, where_we_add);
-
-        console.log(global_div)
+        img.setAttribute("alt", this.name);
+        let name_prod = this.creatBalise('p', this.name); //5
+        global_div.append(img, name_prod); //6
+        start.insertBefore(global_div, where_we_add);//7
     }
 }
-
-import file from '../menu.json' assert {type: 'json'};
-
-let all_prod = [];
-let all_categories = [];
-let tmp_all_categories = [];
-
-for (let elem of file.menu)
-{
-    all_prod.push(new Produit(elem.name, elem.category, elem.price, elem.img));
-    tmp_all_categories.push(elem.category);
-}
-
-for (let elem of tmp_all_categories)
-{
-    for (let inside_elem of elem)
-    {
-        if (all_categories.includes(inside_elem) == false)
-        {
-            all_categories.push(inside_elem);
-        }
-    }
-}
-
-for (let elem of all_categories)
-
-{
-    let start = document.getElementsByClassName('choix')[0]
-
-    let button = document.createElement('button');
-    let button2 = document.createTextNode(elem);
-    button.appendChild(button2);
-    
-    let length = start.getElementsByTagName('button').length;
-    let choix2 = start.getElementsByTagName('button')[length - 1];
-
-    start.insertBefore(button, choix2);
-}
-
-// tmp_all_categories1 = [["frite"], ["burger", "vegan"], ["frite"]]
-// all_categories = ["frite", "burger", "vegan"]
-
-console.log(all_categories);
-
-console.log(all_prod);
-
-for (let elem of all_prod)
-{
-    elem.gen_card();
-    elem.gen_picture();
-}    
