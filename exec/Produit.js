@@ -1,3 +1,10 @@
+export let test = [];
+
+function add_order()
+{
+    test.push(this);
+}
+
 export class Produit
 {
     /**
@@ -70,6 +77,7 @@ export class Produit
         let name_prod = this.creatBalise('p', this.name); //4
         let price_prod = this.creatBalise('p', this.price + "$");
         let button = this.creatBalise('button', 'Order');
+        button.addEventListener('click', add_order.bind(this));
         global_div.append(img, name_prod, price_prod, button); //5
         start.appendChild(global_div); //6
     }

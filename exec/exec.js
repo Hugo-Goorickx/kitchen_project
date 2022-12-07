@@ -2,6 +2,7 @@
 import file from '../menu.json' assert {type: 'json'};
 import {Button} from './Button.js';
 import {Produit} from './Produit.js';
+import {test} from './Produit.js';
 
 //Variables globales
 let all_prod = [];
@@ -118,3 +119,19 @@ let pos_button = document.getElementsByClassName('menu')[0];
 pos_button.addEventListener("click", show_cat);
 
 show_cat();
+
+function show_order()
+{
+    console.log(test);
+    let somme = 0;
+    for (let elem of test)
+        somme = somme + parseInt(elem.price);
+    console.log(somme);
+    
+}
+
+let pos_prim_order = document.getElementsByTagName('ul')[0];
+let pos_order = pos_prim_order.getElementsByTagName('li')[pos_prim_order.getElementsByTagName('li').length - 1];
+
+pos_order.addEventListener("click", show_order);
+
