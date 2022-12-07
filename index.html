@@ -7,73 +7,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A la bonne frite</title>
     <link rel="icon" type="image/x-icon" href="imgs/favicon.png">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./exec/exec.js" type="module"></script>
+    <script src="./exec/dark_mode.js" type="module"></script>
 </head>
-
 <body>
     <div class="content">
         <nav>
             <a href="#">
                 <img src="imgs/logo la bonne frite.png" alt="logo">
             </a>
-            <img src="imgs/menu.png" alt="menu">
+            <img class="logo-burger" src="imgs/menu.png" alt="menu">
+            <div class="menu_desktop">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">food</a></li>
+                    <li><a href="#" class="order">Order</a></li>
+                </ul>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="input">
+                <span class="slider"></span>
+            </label>
         </nav>
         <div class="carrousel">
-
-            <button>
+            <button class="fl_gr">
                 <img src="imgs/black_arrow_left.png" alt="black arrow left">
             </button>
-            <div class="item_carrousel">
-                <img src="imgs/coca.png" alt="canette Coca Cola">
-                <p>Coca Cola 33cl</p>
-            </div>
-            <button>
+            <button class="fl_gr">
                 <img src="imgs/black_arrow_right.png" alt="black arrow right">
             </button>
         </div>
         <div class="choix">
-            <button>
+            <button class="fl_pt">
                 <img src="imgs/black_arrow_left.png" alt="black_arrow_left">
             </button>
-            <button>vegan</button>
-            <button>
+            <button class="fl_pt">
                 <img src="imgs/black_arrow_right.png" alt="black_arrow_right">
             </button>
         </div>
         <div class="all">
-            <div class="article">
-                <img src="imgs/vroc.png" alt="brochette">
-                <p>vroc</p>
-                <p>2€</p>
-                <button>order</button>
-            </div>
         </div>
         <footer>
-            <a href="#">
+            <div class="logo_rs">
+                <a href="#" class="footer_logo">
                 <img src="imgs/logo la bonne frite.png" alt="logo">
-            </a>
-            <div class="follow">
-                <p>Follow us</p>
-                <a href="https://fr-fr.facebook.com/login.php/">
-                    <img src="imgs/black_fb.png" alt="facebook">
                 </a>
-                <a href="https://www.instagram.com/?hl=fr">
-                    <img src="imgs/black_isnta.png" alt="instagram">
-                </a>
+                <div class="follow">
+                    <p>Follow us</p>
+                    <ul>
+                        <li>
+                            <a href="https://fr-fr.facebook.com/login.php/" target="_blank">
+                            <img src="imgs/black_fb.png" alt="facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/?hl=fr" target="_blank">
+                                <img src="imgs/black_isnta.png" alt="instagram">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="support">
-                <p>Private policy</p>
-                <p>Terms of use</p>
-                <p>FAQ</p>
-                <p>About us</p>
+                <p>Support</p>
+                <ul>
+                    <li><a href="">Private policy</a></li>
+                    <li><a href="">Terms of use</a></li>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">About us</a></li>    
+                </ul>
             </div>
             <div class="contact">
-                <p>Charleroi</p>
-                <p>070 111 111</p>
-                <p>info@alabonnefrite.be</p>
+                <p>Contact</p>
+                <ul>
+                    <li><a href="https://www.google.be/maps/place/Charleroi/@50.4228615,4.2877595,11z/data=!3m1!4b1!4m5!3m4!1s0x47c225f096ca39c9:0x40099ab2f4d6410!8m2!3d50.4096349!4d4.44601" target="_blank">Charleroi</a></li>
+                    <li><a href="tel:070111111">070 111 111</a></li>
+                    <li><a href="mailto:info@alabonnefrite.be">info@alabonnefrite.be</a></li>    
+                </ul>
+                
             </div>
         </footer>
     </div>
-
 </body>
 
 </html>

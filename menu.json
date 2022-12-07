@@ -17,25 +17,25 @@
             "name":"Burger Miam",
             "category":["burger", "not_vegan"],
             "price":"300",
-            "img":"../imgs/"
+            "img":"../imgs/miam.png"
         },
         {
             "name":"Burger Viam",
             "category":["burger", "vegan"],
             "price":"300",
-            "img":"../imgs/"
+            "img":"../imgs/viam.png"
         },
         {
             "name":"Crousti Croc",
             "category":["Brochette", "not_vegan"],
             "price":"200",
-            "img":"../imgs/"
+            "img":"../imgs/croc.png"
         },
         {
             "name":"Crousti Vroc",
             "category":["Brochette", "vegan"],
             "price":"200",
-            "img":"../imgs/"
+            "img":"../imgs/vroc.png"
         },
         {
             "name":"Coca-cola",
@@ -49,5 +49,5 @@
             "price":"1500",
             "img":"../imgs/coca_zero.png"
         }
-	]
+    ]
 }
