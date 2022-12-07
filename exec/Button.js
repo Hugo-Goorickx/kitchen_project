@@ -14,7 +14,7 @@ export class Button
     }
 
     /**
-     * Creation de tous les boutons (1 bouton / categories)
+     * Creation du bouton
      * Details:
      * 1    Definition ou on ajoutera le bouton
      * 2    Creation de la balise button
