@@ -31,6 +31,7 @@ export class Button
     {
         let start = document.getElementsByClassName('choix')[0]; //1
         let button = document.createElement('button'); //2
+        button.classList.add('menu');
         let content = document.createTextNode(this.name);
         button.appendChild(content);
         let where_we_are = start.getElementsByTagName('button')[start.getElementsByTagName('button').length - 1]; //3

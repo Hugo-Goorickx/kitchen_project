@@ -32,10 +32,10 @@ for (let elem of file.menu)
 all_categories[0].gen_button();
 
 //Creation des cartes et photos
-// for (let elem of all_prod)
-// {
-//     elem.gen_card();
-//     elem.gen_picture();
-// }
-all_prod[0].gen_card();
+for (let elem of all_prod)
+{
+    elem.gen_card();
+
+}
+//all_prod[0].gen_card();
 all_prod[0].gen_picture();    

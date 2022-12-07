@@ -8,7 +8,6 @@
     <title>A la bonne frite</title>
     <link rel="icon" type="image/x-icon" href="imgs/favicon.png">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="_mixins.scss">
     <script src="./exec/exec.js" type="module"></script>
 </head>
 
@@ -23,7 +22,7 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">food</a></li>
-                    <li><a href="#">Order</a></li>
+                    <li><a href="#" class="order">Order</a></li>
                 </ul>
             </div>
         </nav>
@@ -31,10 +30,6 @@
             <button class="fl_gr">
                 <img src="imgs/black_arrow_left.png" alt="black arrow left">
             </button>
-            <div class="item_carrousel">
-                <img src="imgs/coca.png" alt="canette Coca Cola">
-            <p>Coca Cola 33cl</p>
-            </div>
             <button class="fl_gr">
                 <img src="imgs/black_arrow_right.png" alt="black arrow right">
             </button>
@@ -43,37 +38,32 @@
             <button class="fl_pt">
                 <img src="imgs/black_arrow_left.png" alt="black_arrow_left">
             </button>
-            <button class="menu">vegan</button>
             <button class="fl_pt">
                 <img src="imgs/black_arrow_right.png" alt="black_arrow_right">
             </button>
         </div>
         <div class="all">
-            <div class="article">
-                <img src="imgs/vroc.png" alt="brochette">
-                <p>vroc</p>
-                <p>2€</p>
-                <button>Order</button>
-            </div>
         </div>
         <footer>
-            <a href="#" class="footer_logo">
-            <img src="imgs/logo la bonne frite.png" alt="logo">
-            </a>
-            <div class="follow">
-                <p>Follow us</p>
-                <ul>
-                    <li>
-                        <a href="https://fr-fr.facebook.com/login.php/" target="_blank">
-                        <img src="imgs/black_fb.png" alt="facebook">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/?hl=fr" target="_blank">
-                            <img src="imgs/black_isnta.png" alt="instagram">
-                        </a>
-                    </li>
-                </ul>
+            <div class="logo_rs">
+                <a href="#" class="footer_logo">
+                <img src="imgs/logo la bonne frite.png" alt="logo">
+                </a>
+                <div class="follow">
+                    <p>Follow us</p>
+                    <ul>
+                        <li>
+                            <a href="https://fr-fr.facebook.com/login.php/" target="_blank">
+                            <img src="imgs/black_fb.png" alt="facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/?hl=fr" target="_blank">
+                                <img src="imgs/black_isnta.png" alt="instagram">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="support">
                 <p>Support</p>

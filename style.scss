@@ -1,4 +1,4 @@
-@import url(./_mixins.scss);
+@import "mixins";
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body{
     background-color: rgb(255, 255, 255);
@@ -15,30 +15,82 @@ body{
             background-color: rgb(239, 239, 239);
             box-shadow: 0px 4px 2px 1px rgba(0,0,0,0.34);
             padding-bottom: 5%;
+            @include desktop{
+                height: 0.5vw;
+            }
             a{
                 width: 50%;
                 img{
                     width: 90%;
+                    @include desktop{
+                        width: 30%;
+                    }
                 }
             }
             .logo-burger{
                 width: 12vw;
                 height: 12vw;
+                @include desktop{
+                    display: none;
+                }
             }
             .menu_desktop{
                 display: none;
+                @include desktop{
+                    display: inline;
+                    width: 30%;
+                    ul{
+                        list-style: none;
+                        display: flex;
+                        justify-content: space-evenly;
+                        padding: 0;
+                        li{
+                            display: flex;
+                            align-items: center;
+                            font-family: 'Roboto', sans-serif;
+                            font-size: 120%;
+                            a{
+                                color: black;
+                                text-decoration: none;
+                                &:hover{
+                                    color: #fc6612;
+                                }
+                            }
+                            .order{
+                                color: white;
+                                text-align: center;
+                                background-color:#fc6612;
+                                border-radius:28px;
+                                border:1px solid #8f3a09;
+                                display:inline-block;
+                                cursor:pointer;
+                                font-size:17px;
+                                padding:16px 31px;
+                                &:hover{
+                                    background-color: white;
+                                    color: #fc6612;
+                                }
+                            }
+                        }
+                    }
+                }
+                    
             }
         }
         .carrousel{
             width: 100%;
             display: flex;
             flex-direction: row;
+            margin-top: 10%;
             .fl_gr{
-                width: 30vw;
+                width: 30%;
                 background-color: transparent;
                 border: none;
                 img{
-                    width: 50%;
+                    width: 30%;
+                    @include desktop{
+                        width: 10%;
+                    }
                 }
                 &:hover{
                     opacity: 0.33;
@@ -61,6 +113,10 @@ body{
                     font-family: 'Roboto', sans-serif;
                     margin: auto;
                     font-weight: 500;
+                    @include desktop{
+                        font-size: 170%;
+                        margin-top: 3%;
+                    }
                 }
             }
             
@@ -74,6 +130,9 @@ body{
                 width: 20%;
                 background-color: transparent;
                 border: none;
+                @include desktop{
+                    width: 8%;
+                }
                 img{
                     width: 30%;
                 }
@@ -89,16 +148,21 @@ body{
                 width: 30%;
                 font-weight: 600;
                 font-family: 'Roboto', sans-serif;
-                background-color:#d5ded8;
-                border-radius:28px;
-                border:1px solid #909b9e;
+                background-color:#fc6612;
+                color: white;
+                border-radius:50px;
+                border:1px solid #8f3a09;
                 display:inline-block;
                 cursor:pointer;
                 font-size:17px;
                 padding:16px 31px;
                 text-decoration:none;
+                @include desktop{
+                    font-size: 200%;
+                }
                 &:hover{
-                    background-color:#abadaa;
+                    background-color:white;
+                    color: #fc6612;
                 }
                 &:active{
                     position:relative;
@@ -111,6 +175,14 @@ body{
             margin-top: 15%;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            background-color: rgba(243, 243, 243, 0.878);
+            padding-bottom: 10%;
+            @include desktop{
+                margin-top: 10%;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
             .article{
                 width: 80%;
                 background-color: rgba(243, 243, 243, 0.878);
@@ -118,6 +190,9 @@ body{
                 flex-direction: column;
                 align-items: center;
                 padding-bottom: 7%;
+                @include desktop{
+                    width: 33%;
+                }
                 img{
                     background-color: rgb(255, 255, 255);
                     margin-top: 10%;
@@ -136,9 +211,10 @@ body{
                     width: 30%;
                     font-weight: 600;
                     font-family: 'Roboto', sans-serif;
-                    background-color:#d5ded8;
+                    background-color:#fc6612;
+                    color: white;
                     border-radius:28px;
-                    border:1px solid #909b9e;
+                    border:1px solid #8f3a09;
                     display:inline-block;
                     cursor:pointer;
                     font-size:17px;
@@ -147,8 +223,12 @@ body{
                     padding: 0;
                     padding-top: 5%;
                     padding-bottom: 5%;
+                    @include desktop{
+                        border-radius:50px;
+                    }
                     &:hover{
-                        background-color:#abadaa;
+                        background-color:white;
+                        color: #fc6612;
                     }
                     &:active{
                         position:relative;
@@ -160,52 +240,74 @@ body{
         footer{
             width: 100%;
             background-color: lightgray;
-            margin-top: 10%;
             font-family: 'Roboto', sans-serif;
-            .footer_logo{
-                width: 100%;
+            @include desktop{
                 display: flex;
-                justify-content: center;
-                margin: auto;
-                img{
-                    width: 50%;
-                }
+                justify-content: space-evenly;
+                padding-top: 5%;
+                padding-bottom: 5%;
+                align-items: flex-start;
             }
-            .follow{
-                width: 100%;
-                p{
-                    font-size: large;
-                    text-align: center;
-                    font-weight: 700;
-                }
-                ul{
-                    width: 80%;
-                    list-style: none;
+            .logo_rs{
+                .footer_logo{
+                    width: 100%;
                     display: flex;
                     justify-content: center;
-                    text-decoration: none;
-                    li{
-                        margin-left: 2%;
-                        margin-right: 2%;
-                        a{
-                            img{
-                                width: 5vw;
-                                
-                            }
-                            &:hover{
-                                filter: brightness(0) invert(1);
-                            }
+                    margin: auto;
+                    img{
+                        width: 50%;
+                        @include desktop{
+                            width: 75%;
                         }
                     }
                 }
+                .follow{
+                    width: 100%;
+                    p{
+                        font-size: large;
+                        text-align: center;
+                        font-weight: 700;
+                        @include desktop{
+                            font-size: 200%;
+                        }
+                    }
+                    ul{
+                        width: 80%;
+                        list-style: none;
+                        display: flex;
+                        justify-content: center;
+                        text-decoration: none;
+                        li{
+                            margin-left: 2%;
+                            margin-right: 2%;
+                            a{
+                                img{
+                                    width: 5vw;
+                                    @include desktop{
+                                        width: 3vw;
+                                    }
+                                }
+                                &:hover{
+                                    filter: brightness(0) invert(1);
+                                }
+                            }
+                        }
+                    }
+                }  
             }
             .support{
                 display: flex;
                 flex-direction: column;
+                @include desktop{
+                    margin-top: 2%;
+                }
                 p{
                     font-size: large;
                     text-align: center;
                     font-weight: 700;
+                    @include desktop{
+                        font-size: 180%;
+                    }
                 }
                 ul{
                     display: flex;
@@ -218,6 +320,9 @@ body{
                     a{
                         text-decoration: none;
                         color: black;
+                        @include desktop{
+                            font-size: 120%;
+                        }
                         &:hover{
                             color: #fc6612;
                         }
@@ -229,10 +334,16 @@ body{
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
+                @include desktop{
+                    margin-top: 2%;
+                }
                 p{
                     font-size: large;
                     text-align: center;
                     font-weight: 700;
+                    @include desktop{
+                        font-size: 180%;
+                    }
                 }
                 ul{
                     list-style: none;
@@ -245,6 +356,9 @@ body{
                     a{
                         text-decoration: none;
                         color: black;
+                        @include desktop{
+                            font-size: 120%;
+                        }
                     }
                 }
             }
