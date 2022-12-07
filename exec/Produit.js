@@ -17,6 +17,7 @@ export class Produit
         this.category = category;
         this.price = price;
         this.img = img;
+        this.category.unshift("Tout");
     }
 
     /**
@@ -32,7 +33,7 @@ export class Produit
      *      txt     => Interieur de la balise
      * 
      * Return:
-     *      Revoit la balise cree
+     *      Revoit la balise creee
      */
     creatBalise(balise, txt)
     {
