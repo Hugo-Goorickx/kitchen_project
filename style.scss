@@ -1,4 +1,4 @@
-@import url(./_mixins.scss);
+@import "mixins";
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body{
     background-color: rgb(255, 255, 255);
@@ -24,9 +24,21 @@ body{
             .logo-burger{
                 width: 12vw;
                 height: 12vw;
+                @include desktop{
+                    display: none;
+                }
             }
             .menu_desktop{
                 display: none;
+                @include desktop{
+                    display: inline;
+                }
+                ul{
+                    li{
+                    list-style: none;
+                    text-decoration: none;
+                    }
+                }
             }
         }
         .carrousel{
@@ -53,6 +65,7 @@ body{
                 flex-direction: column;
                 justify-content: center;
                 width: 80%;
+                margin-top: 5%;
                 img{
                     width: 70%;
                     margin: auto;
