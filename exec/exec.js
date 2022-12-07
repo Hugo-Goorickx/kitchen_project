@@ -25,14 +25,17 @@ for (let elem of file.menu)
 }
 
 //Creation de tous les boutons
-for (let elem of all_categories)
-{
-    elem.gen_button();
-}
+// for (let elem of all_categories)
+// {
+//     elem.gen_button();
+// }
+all_categories[0].gen_button();
 
 //Creation des cartes et photos
-for (let elem of all_prod)
-{
-    elem.gen_card();
-    elem.gen_picture();
-}    
+// for (let elem of all_prod)
+// {
+//     elem.gen_card();
+//     elem.gen_picture();
+// }
+all_prod[0].gen_card();
+all_prod[0].gen_picture();    
