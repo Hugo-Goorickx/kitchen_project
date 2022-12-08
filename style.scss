@@ -107,25 +107,60 @@ body{
             text-align: center;
             font-size: 125%;
         }
-        .buy{
-            font-family: 'Roboto', sans-serif;
-            color: white;
-            text-align: center;
-            background-color:#fc6612;
-            border-radius:28px;
-            border:1px solid #8f3a09;
-            cursor:pointer;
-            font-size:15px;
-            padding:5px 25px;
-            width: 25vw;
-            margin-bottom: 5%;
+        .btn{
+            @include desktop{
+            width: 100%;
             display: flex;
-            justify-content: center;
-            &:hover{
-                background-color: white;
-                color: #fc6612;
+            justify-content: space-evenly;    
+            }
+            
+            .buy{
+                font-family: 'Roboto', sans-serif;
+                color: white;
+                text-align: center;
+                background-color:#fc6612;
+                border-radius:28px;
+                border:1px solid #8f3a09;
+                cursor:pointer;
+                font-size:15px;
+                padding:5px 25px;
+                width: 25vw;
+                margin-bottom: 5%;
+                display: flex;
+                justify-content: center;
+                @include desktop{
+                    width: 25%;
+                }
+                &:hover{
+                    background-color: white;
+                    color: #fc6612;
+                }
+            }
+            .exit{
+                display: none;
+                @include desktop{
+                    width: 25%;
+                    font-family: 'Roboto', sans-serif;
+                    color: white;
+                    text-align: center;
+                    background-color:#fc6612;
+                    border-radius:28px;
+                    border:1px solid #8f3a09;
+                    cursor:pointer;
+                    font-size:15px;
+                    padding:5px 25px;
+                    margin-bottom: 5%;
+                    display: flex;
+                    justify-content: center;
+                    &:hover{
+                        background-color: white;
+                        color: #fc6612;
+                    }    
+                }
+                
             }
         }
+        
     }
     .content{
 

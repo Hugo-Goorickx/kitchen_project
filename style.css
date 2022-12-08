@@ -63,7 +63,14 @@ body .commande .total {
   text-align: center;
   font-size: 125%;
 }
-body .commande .buy {
+@media screen and (min-width: 1024px) {
+  body .commande .btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+body .commande .btn .buy {
   font-family: "Roboto", sans-serif;
   color: white;
   text-align: center;
@@ -78,9 +85,38 @@ body .commande .buy {
   display: flex;
   justify-content: center;
 }
-body .commande .buy:hover {
+@media screen and (min-width: 1024px) {
+  body .commande .btn .buy {
+    width: 25%;
+  }
+}
+body .commande .btn .buy:hover {
   background-color: white;
   color: #fc6612;
+}
+body .commande .btn .exit {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  body .commande .btn .exit {
+    width: 25%;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    text-align: center;
+    background-color: #fc6612;
+    border-radius: 28px;
+    border: 1px solid #8f3a09;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 5px 25px;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+  }
+  body .commande .btn .exit:hover {
+    background-color: white;
+    color: #fc6612;
+  }
 }
 body .content .test {
   position: fixed;
