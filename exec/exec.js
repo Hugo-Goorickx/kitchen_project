@@ -182,21 +182,21 @@ function show_order()
         tmp_p= document.createElement('p');
         tmp_p.classList.add('nom')
 
-        tmp_content = document.createTextNode("Produit:  " + elem.name);
+        tmp_content = document.createTextNode(elem.name);
         tmp_p.appendChild(tmp_content);
         tmp_info.appendChild(tmp_p);
 
         tmp_p= document.createElement('p');
         tmp_p.classList.add('prix')
 
-        tmp_content = document.createTextNode("Prix:  " + elem.price + "$");
+        tmp_content = document.createTextNode(elem.price + "$");
         tmp_p.appendChild(tmp_content);
         tmp_info.appendChild(tmp_p);
 
         tmp_p= document.createElement('p');
         tmp_p.classList.add('quantite')
 
-        tmp_content = document.createTextNode("Nombre de produits:  " + elem.nb_prod);
+        tmp_content = document.createTextNode("Qts:  " + elem.nb_prod);
         tmp_p.appendChild(tmp_content);
         tmp_info.appendChild(tmp_p);
 
