@@ -10,18 +10,22 @@
         <script src="./exec/exec.js" type="module"></script>
         <script src="./exec/dark_mode.js" type="module"></script>
         <script>
-            function myFunction() {
+            function myFunction()
+            {
                 var x = document.getElementById("myLinks");
+                let order = document.getElementsByClassName("commande")[0];
                 if (x.style.display === "block") {
                     x.style.display = "none";
-                } else {
+                } else if (!order)  {
                     x.style.display = "block";
                 }
-                }
+                if (order)
+                    order.remove();
+            }
         </script>
     </head>
     <body>
-        <div class="commande">
+       <!-- <div class="commande">
             <div class="food_content">
                 <div class="image">
                     <img src="imgs\croc.png" alt="" class="visuel">
@@ -39,7 +43,8 @@
             <button class="buy">
                 <p>Order</p>
             </button>
-        </div>
+        </div>-->
+        
         <div class="content">
             <div class="test">
                 <div class="topnav">
@@ -47,7 +52,9 @@
                         <img src="imgs/logo la bonne frite.png" alt="logo">
                     </a>
                     <a href="javascript:void(0);" class = "icon" onclick="myFunction()">
-                        <img class="logo-burger" src="imgs/menu.png" alt="menu">
+                        <div class="menu btn2" id = "menu_burger">
+                            <div class="icon"></div>
+                        </div>
                     </a>
                     <div class="switch">
 
@@ -60,7 +67,7 @@
                         <a href="#">Home</a>
                         <a href="#food">Food</a>
                         <a href="#contact">Contact</a>
-                        <a href="#" class="order">Order</a>
+                        <a id="button_order" href="#" class="order">Order</a>
                     </div>
                 </div>
             </div>
@@ -119,6 +126,6 @@
                 </div>
             </footer>
         </div>
-        -->
+        
     </body>
 </html>

@@ -2,7 +2,13 @@ export let test = [];
 
 function add_order()
 {
-    test.push(this);
+    if (test.includes(this) == false)
+        test.push(this);
+    else
+    {
+        let index = test.indexOf(this);
+        test[index].nb_prod++;
+    }
 }
 
 export class Produit
@@ -24,6 +30,7 @@ export class Produit
         this.category = category;
         this.price = price;
         this.img = img;
+        this.nb_prod = 1;
         this.category.unshift("Tout");
     }
 

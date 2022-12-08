@@ -1,3 +1,5 @@
+import {test} from './Produit.js';
+
 /** Change l'image en focntion du sens dans le quel on va (1 = doite | -1 = gauche)
  *  Details:
  *      1       Se place la ou va ajouter l'iamge
@@ -90,6 +92,26 @@ function show_cat()
                 elem.gen_card();
 }
 
+function essaie(elem)
+{
+        elem.nb_prod--;
+        console.log(elem.nb_prod);
+        if (elem.nb_prod == 0)
+        {
+            console.log("Test");
+            test.splice(test.indexOf(elem), 1);
+            elem
+            console.log(test);
+        }
+        show_order();
+        console.log("Test");
+
+}
+
+document.getElementById("menu_burger").addEventListener("click", function()
+{
+    document.getElementById("menu_burger").classList.toggle("open");
+});
 /** Renvoi les produits achetes et la somme totale
  *  Details:
  *      1       Genere la somme
@@ -104,21 +126,116 @@ function show_cat()
  */
 function show_order()
 {
+    document.getElementById("myLinks").style.display = "none";
+
+
+    let pos_body = document.body;
+    let pos_content = document.getElementsByClassName("content")[0];
+
+    let order = document.getElementsByClassName("commande")[0];
+    if (order)
+        order.remove();
+
+    order = document.createElement('div');
+    order.classList.add("commande");
+
+    let tmp_food;
+    let tmp_img;
+    let tmp_img1;
+    let tmp_img2;
+    let tmp_info;
+    let tmp_p;
+    let tmp_content;
+    let tmp_but;
     let somme = 0;//1
     for (let elem of test)
-        somme += parseInt(elem.price);
-    let output = "Vous avez commandez:\n";//2
-    for (let elem of test)
-        output += "    -" + elem.name + " : " + elem.price + "$\n";
-    output += "Pour un total de " + somme +"$";
-    window.alert(output);//3
+    {
+        somme += parseInt(elem.price * elem.nb_prod);
+        tmp_food = document.createElement('div');
+        tmp_food.classList.add('food_content');
+        tmp_food.id = elem.name;
+        
+        tmp_img = document.createElement('div');
+        tmp_img.classList.add('image')
+
+        tmp_img1 = document.createElement('img');
+        tmp_img1.classList.add('visuel')
+        tmp_img1.setAttribute('src', elem.img);
+        tmp_img1.setAttribute('alt', elem.name);
+
+        tmp_img2 = document.createElement('img');
+        tmp_img2.classList.add('poubelle');
+        if (localStorage.theme == "dark")
+            tmp_img2.setAttribute('src', "imgs/poubelle-blanc.png");
+        else if (localStorage.theme == "light")
+            tmp_img2.setAttribute('src', "imgs/poubelle-noir.png");
+        tmp_img2.setAttribute('alt', "poubelle");
+        tmp_img2.addEventListener("click", function(){essaie(elem)});
+
+        tmp_img.appendChild(tmp_img1);
+
+        tmp_food.appendChild(tmp_img);
+
+        tmp_info = document.createElement('div');
+        tmp_info.classList.add('info')
+
+        tmp_p= document.createElement('p');
+        tmp_p.classList.add('nom')
+
+        tmp_content = document.createTextNode("Produit:  " + elem.name);
+        tmp_p.appendChild(tmp_content);
+        tmp_info.appendChild(tmp_p);
+
+        tmp_p= document.createElement('p');
+        tmp_p.classList.add('prix')
+
+        tmp_content = document.createTextNode("Prix:  " + elem.price + "$");
+        tmp_p.appendChild(tmp_content);
+        tmp_info.appendChild(tmp_p);
+
+        tmp_p= document.createElement('p');
+        tmp_p.classList.add('quantite')
+
+        tmp_content = document.createTextNode("Nombre de produits:  " + elem.nb_prod);
+        tmp_p.appendChild(tmp_content);
+        tmp_info.appendChild(tmp_p);
+
+        tmp_food.appendChild(tmp_info);
+        tmp_food.appendChild(tmp_img2);
+        order.appendChild(tmp_food);
+    }
+
+    let tmp_total = document.createElement("div")
+    tmp_total.classList.add('total');
+
+    tmp_p = document.createElement('p')
+    tmp_p.classList.add('prix_complet');
+
+    tmp_content = document.createTextNode("Total:  " + somme + "$");
+    tmp_p.appendChild(tmp_content);
+    tmp_total.appendChild(tmp_p);
+
+///////////////
+    tmp_but = document.createElement('button');
+    tmp_but.classList.add('buy');
+
+    tmp_p = document.createElement('p')
+
+    tmp_content = document.createTextNode('Order');
+    tmp_p.appendChild(tmp_content);
+    tmp_but.appendChild(tmp_p);
+    tmp_total.appendChild(tmp_but);
+
+
+    order.appendChild(tmp_total);
+
+    pos_body.insertBefore(order, pos_content);
 }
 
 //Import le fichier json
 import file from '../menu.json' assert {type: 'json'};
 import {Button} from './Button.js';
 import {Produit} from './Produit.js';
-import {test} from './Produit.js';
 
 //Variables globales
 let all_prod = [];
@@ -158,9 +275,8 @@ all_categories[0].gen_button();
 all_prod[0].gen_picture();    
 
 //Ajoute la fonction de l'affichage de la commande actuelle 
-let pos_prim_order = document.getElementsByTagName('ul')[0];
-let pos_order = pos_prim_order.getElementsByTagName('li')[pos_prim_order.getElementsByTagName('li').length - 1];
-pos_order.addEventListener("click", show_order);
+let pos_prim_order = document.getElementById('button_order');
+pos_prim_order.addEventListener("click", show_order);
 
 //Ajoute la fonction de l'affichage lors du clic
 let pos_button = document.getElementsByClassName('menu')[0];

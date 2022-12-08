@@ -11,39 +11,43 @@ body .commande {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  margin-top: 5%;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-top: 20%;
 }
 @media screen and (min-width: 1024px) {
   body .commande {
     top: 0;
-    margin-top: 10.5%;
+    margin-top: 20%;
     width: 40%;
     right: 0;
   }
 }
 body .commande .food_content {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
+  align-items: center;
 }
 body .commande .food_content .image {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 33%;
 }
 body .commande .food_content .image .visuel {
   width: 80%;
 }
-body .commande .food_content .image .poubelle {
-  width: 10%;
+body .commande .food_content .poubelle {
+  width: 5%;
 }
 body .commande .info {
-  width: 50%;
+  width: 25%;
   font-family: "Roboto", sans-serif;
   text-align: left;
-  margin-left: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,8 +73,10 @@ body .commande .buy {
   cursor: pointer;
   font-size: 15px;
   padding: 5px 25px;
-  width: 50%;
+  width: 25vw;
   margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
 }
 body .commande .buy:hover {
   background-color: white;
@@ -101,9 +107,47 @@ body .content .test .topnav a.icon {
   right: 15vw;
   top: 7vw;
 }
-body .content .test .topnav a.icon img {
-  height: 100%;
-  width: 100%;
+body .content .test .topnav a.icon .btn2 {
+  transition-duration: 0.5s;
+}
+body .content .test .topnav a.icon .btn2 .icon {
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 8px;
+  width: 60px;
+  top: 30px;
+  background-color: var(--font-color);
+}
+body .content .test .topnav a.icon .btn2 .icon:before {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 60px;
+  height: 8px;
+  background-color: var(--font-color);
+  content: "";
+  top: -20px;
+}
+body .content .test .topnav a.icon .btn2 .icon:after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 60px;
+  height: 8px;
+  background-color: var(--font-color);
+  content: "";
+  top: 20px;
+}
+body .content .test .topnav a.icon .btn2.open .icon {
+  transition-duration: 0.5s;
+  background: transparent;
+}
+body .content .test .topnav a.icon .btn2.open .icon:before {
+  transform: rotateZ(45deg) scaleX(1.25) translate(13px, 13px);
+}
+body .content .test .topnav a.icon .btn2.open .icon:after {
+  transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px);
+}
+body .content .test .topnav a.icon .btn2:hover {
+  cursor: pointer;
 }
 body .content .test .topnav a:hover {
   color: black;
@@ -528,6 +572,7 @@ html {
 
 [data-theme=light] {
   --bg-color-nav: rgba(231, 231, 231, 0.907);
+  --font-color:#201f1f;
 }
 
 .switch {
@@ -584,4 +629,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
