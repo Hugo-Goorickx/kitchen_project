@@ -82,6 +82,30 @@ body .commande .buy:hover {
   background-color: white;
   color: #fc6612;
 }
+body .commande .exit {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  body .commande .exit {
+    width: 25%;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    text-align: center;
+    background-color: #fc6612;
+    border-radius: 28px;
+    border: 1px solid #8f3a09;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 5px 25px;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+  }
+  body .commande .exit:hover {
+    background-color: white;
+    color: #fc6612;
+  }
+}
 body .content .test {
   position: fixed;
   top: 0;
@@ -113,38 +137,38 @@ body .content .test .topnav a.icon .btn2 {
 body .content .test .topnav a.icon .btn2 .icon {
   transition-duration: 0.5s;
   position: absolute;
-  height: 8px;
-  width: 60px;
+  height: 1vw;
+  width: 8vw;
   top: 30px;
   background-color: var(--font-color);
 }
 body .content .test .topnav a.icon .btn2 .icon:before {
   transition-duration: 0.5s;
   position: absolute;
-  width: 60px;
-  height: 8px;
+  width: 8vw;
+  height: 1vw;
   background-color: var(--font-color);
   content: "";
-  top: -20px;
+  top: -2vw;
 }
 body .content .test .topnav a.icon .btn2 .icon:after {
   transition-duration: 0.5s;
   position: absolute;
-  width: 60px;
-  height: 8px;
+  width: 8vw;
+  height: 1vw;
   background-color: var(--font-color);
   content: "";
-  top: 20px;
+  top: 2vw;
 }
 body .content .test .topnav a.icon .btn2.open .icon {
   transition-duration: 0.5s;
   background: transparent;
 }
 body .content .test .topnav a.icon .btn2.open .icon:before {
-  transform: rotateZ(45deg) scaleX(1.25) translate(13px, 13px);
+  transform: rotateZ(45deg) scaleX(1.25) translate(1.1vw, 1.1vw);
 }
 body .content .test .topnav a.icon .btn2.open .icon:after {
-  transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px);
+  transform: rotateZ(-45deg) scaleX(1.25) translate(1.3vw, -1.3vw);
 }
 body .content .test .topnav a.icon .btn2:hover {
   cursor: pointer;

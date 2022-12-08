@@ -53,13 +53,17 @@ function move_car_up(move)
  */
 function move_car_down(move)
 {
-    let pos_old_button = document.getElementsByClassName('menu')[0]; //1
-    pos_old_button.remove(); //2
+    let pos_old_button = document.getElementsByClassName('menu'); //1
+    while (pos_old_button.length)
+        pos_old_button[0].remove(); //2
+    console.log("test" + index_button);
     index_button = index_button + move; //3
     if(index_button < 0) //4
         index_button = all_categories.length + move;
     else if (index_button >= all_categories.length) //5
         index_button = 0;
+    console.log("test" + index_button);
+
     all_categories[index_button].gen_button(); //6
     let pos_button = document.getElementsByClassName('menu')[0];//7
     pos_button.addEventListener("click", show_cat);
@@ -94,17 +98,18 @@ function show_cat()
 
 function essaie(elem)
 {
-        elem.nb_prod--;
-        console.log(elem.nb_prod);
-        if (elem.nb_prod == 0)
-        {
-            console.log("Test");
-            test.splice(test.indexOf(elem), 1);
-            elem
-            console.log(test);
-        }
-        show_order();
+    elem.nb_prod--;
+    console.log(elem.nb_prod);
+    if (elem.nb_prod == 0)
+    {
+        elem.nb_prod = 1;
         console.log("Test");
+        test.splice(test.indexOf(elem), 1);
+        elem
+        console.log(test);
+    }
+    show_order();
+    console.log("Test");
 
 }
 
@@ -112,12 +117,24 @@ document.getElementById("menu_burger").addEventListener("click", function()
 {
     document.getElementById("menu_burger").classList.toggle("open");
 });
+
+function create_bal(balise, content)
+{
+    let tmp = document.createElement(balise);
+    tmp.classList.add(content);
+    return (tmp);
+}
+
 /** Renvoi les produits achetes et la somme totale
  *  Details:
- *      1       Genere la somme
- *      2       Genere l'output
- *      3       Ouvre une box alert avec l'output genere
- * 
+ *      1       Cache l'interieur du menu burger
+ *      2       Selectionne l'endroit ou la commande va etre achetee
+ *      3       Supprime les anciennes commandes
+ *      4       Cree les nouvelles commandes
+ *      5       Genere les nouveaux produits
+ *      6       Genere le prix total
+ *      7       Genere le bouton d'achat
+ *      8       Ajoute l'ensemble a l'HTML
  *  Params:
  *      Rien
  * 
@@ -126,45 +143,32 @@ document.getElementById("menu_burger").addEventListener("click", function()
  */
 function show_order()
 {
-    document.getElementById("myLinks").style.display = "none";
+    if (window.innerWidth < 1025) //1
+        document.getElementById("myLinks").style.display = "none";
 
-
-    let pos_body = document.body;
+    let pos_body = document.body; //2
     let pos_content = document.getElementsByClassName("content")[0];
 
-    let order = document.getElementsByClassName("commande")[0];
+    let order = document.getElementsByClassName("commande")[0]; //3
     if (order)
         order.remove();
 
-    order = document.createElement('div');
-    order.classList.add("commande");
+    order = create_bal('div', 'commande'); //3
 
-    let tmp_food;
-    let tmp_img;
-    let tmp_img1;
-    let tmp_img2;
-    let tmp_info;
-    let tmp_p;
-    let tmp_content;
-    let tmp_but;
-    let somme = 0;//1
-    for (let elem of test)
+    let tmp_food, tmp_img, tmp_img1, tmp_img2, tmp_info, tmp_p, tmp_content, tmp_but, somme = 0;
+    for (let elem of test) //4
     {
         somme += parseInt(elem.price * elem.nb_prod);
-        tmp_food = document.createElement('div');
-        tmp_food.classList.add('food_content');
+        tmp_food = create_bal('div', 'food_content');
         tmp_food.id = elem.name;
         
-        tmp_img = document.createElement('div');
-        tmp_img.classList.add('image')
+        tmp_img = create_bal('div', 'image');
 
-        tmp_img1 = document.createElement('img');
-        tmp_img1.classList.add('visuel')
+        tmp_img1 = create_bal('img', 'visuel');
         tmp_img1.setAttribute('src', elem.img);
         tmp_img1.setAttribute('alt', elem.name);
 
-        tmp_img2 = document.createElement('img');
-        tmp_img2.classList.add('poubelle');
+        tmp_img2 = create_bal('img', 'poubelle');
         if (localStorage.theme == "dark")
             tmp_img2.setAttribute('src', "imgs/poubelle-blanc.png");
         else if (localStorage.theme == "light")
@@ -176,26 +180,19 @@ function show_order()
 
         tmp_food.appendChild(tmp_img);
 
-        tmp_info = document.createElement('div');
-        tmp_info.classList.add('info')
+        tmp_info = create_bal('div', 'info');
 
-        tmp_p= document.createElement('p');
-        tmp_p.classList.add('nom')
-
+        tmp_p = create_bal('p', 'nom');
         tmp_content = document.createTextNode(elem.name);
         tmp_p.appendChild(tmp_content);
         tmp_info.appendChild(tmp_p);
 
-        tmp_p= document.createElement('p');
-        tmp_p.classList.add('prix')
-
+        tmp_p = create_bal('p', 'prix');
         tmp_content = document.createTextNode(elem.price + "$");
         tmp_p.appendChild(tmp_content);
         tmp_info.appendChild(tmp_p);
 
-        tmp_p= document.createElement('p');
-        tmp_p.classList.add('quantite')
-
+        tmp_p = create_bal('p', 'quantite');
         tmp_content = document.createTextNode("Qts:  " + elem.nb_prod);
         tmp_p.appendChild(tmp_content);
         tmp_info.appendChild(tmp_p);
@@ -204,28 +201,32 @@ function show_order()
         tmp_food.appendChild(tmp_img2);
         order.appendChild(tmp_food);
     }
-
-    let tmp_total = document.createElement("div")
-    tmp_total.classList.add('total');
-
-    tmp_p = document.createElement('p')
-    tmp_p.classList.add('prix_complet');
-
+    tmp_p = create_bal('p', 'prix_complet'); //5
     tmp_content = document.createTextNode("Total:  " + somme + "$");
     tmp_p.appendChild(tmp_content);
+    
+    let tmp_total = create_bal('div', 'total');
     tmp_total.appendChild(tmp_p);
 
-///////////////
-    tmp_but = document.createElement('button');
-    tmp_but.classList.add('buy');
-
+    tmp_but = create_bal('button', 'buy'); //7
     tmp_p = document.createElement('p')
-
     tmp_content = document.createTextNode('Order');
-    tmp_p.appendChild(tmp_content);
+    tmp_p.appendChild(tmp_content); //8
+    
     tmp_but.appendChild(tmp_p);
-    tmp_total.appendChild(tmp_but);
+    tmp_but.addEventListener('click', function(){window.alert("Commande validee")});
 
+    tmp_total.appendChild(tmp_but);
+    
+    tmp_but = create_bal('button', 'exit'); //7
+    tmp_p = document.createElement('p')
+    tmp_content = document.createTextNode('Exit');
+    tmp_p.appendChild(tmp_content); //8
+    
+    tmp_but.appendChild(tmp_p);
+    tmp_but.addEventListener('click', function(){document.getElementsByClassName("commande")[0].remove()});
+
+    tmp_total.appendChild(tmp_but);
 
     order.appendChild(tmp_total);
 

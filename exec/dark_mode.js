@@ -63,7 +63,8 @@ function light(fl_gc, fl_dr)
     for (let elem of document.getElementsByClassName('fl_pt'))//2
         if (elem.getElementsByTagName('img').length !=0)
             elem.removeChild(elem.getElementsByTagName('img')[0]);
-    
+    fl_gc.setAttribute("alt", "fleche")
+    fl_dr.setAttribute("alt", "fleche")
     document.getElementsByClassName('fl_gr')[0].appendChild(fl_gc);//3
     document.getElementsByClassName('fl_gr')[1].appendChild(fl_dr);
     document.getElementsByClassName('fl_pt')[0].appendChild(fl_gc.cloneNode());
@@ -83,6 +84,7 @@ function light(fl_gc, fl_dr)
 function changeColor()
 {
     let tmp = document.getElementsByClassName('poubelle');
+
     if (actualTheme === 'dark')
     {
         for (let elem of tmp)

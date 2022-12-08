@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Menu de notre friterie">
         <title>A la bonne frite</title>
         <link rel="icon" type="image/x-icon" href="imgs/favicon.png">
         <link rel="stylesheet" href="./style.css">
@@ -14,13 +15,18 @@
             {
                 var x = document.getElementById("myLinks");
                 let order = document.getElementsByClassName("commande")[0];
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                } else if (!order)  {
-                    x.style.display = "block";
+                if (window.innerWidth < 1025)
+                {
+                    if (x.style.display === "block") {
+                        x.style.display = "none";
+                    } else if (!order)  {
+                        x.style.display = "block";
+                    }
+                    if (order)
+                        order.remove();
                 }
-                if (order)
-                    order.remove();
+                else
+                    x.style.display = "block";
             }
         </script>
     </head>
@@ -57,7 +63,6 @@
                         </div>
                     </a>
                     <div class="switch">
-
                         <label class="theme-switch" for="checkbox">
                             <input type="checkbox" id="checkbox" />
                             <div class="slider round"></div>
@@ -89,18 +94,18 @@
             <footer id="contact">
                 <div class="logo_rs">
                     <a href="#" class="footer_logo">
-                    <img src="imgs/logo la bonne frite.png" alt="logo">
+                        <img src="imgs/logo la bonne frite.png" alt="logo">
                     </a>
                     <div class="follow">
                         <p>Follow us</p>
                         <ul>
                             <li>
-                                <a href="https://fr-fr.facebook.com/login.php/" target="_blank">
+                                <a id="fb" href="https://fr-fr.facebook.com/login.php/" target="_blank">
                                     <img src="imgs/black_fb.png" alt="facebook">
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/?hl=fr" target="_blank">
+                                <a id="insta" href="https://www.instagram.com/?hl=fr" target="_blank">
                                     <img src="imgs/black_isnta.png" alt="instagram">
                                 </a>
                             </li>
@@ -110,10 +115,10 @@
                 <div class="support">
                     <p>Support</p>
                     <ul>
-                        <li><a href="">Private policy</a></li>
-                        <li><a href="">Terms of use</a></li>
-                        <li><a href="">FAQ</a></li>
-                        <li><a href="">About us</a></li>    
+                        <li><a href="#contact">Private policy</a></li>
+                        <li><a href="#contact">Terms of use</a></li>
+                        <li><a href="#contact">FAQ</a></li>
+                        <li><a href="#contact">About us</a></li>    
                     </ul>
                 </div>
                 <div class="contact">
