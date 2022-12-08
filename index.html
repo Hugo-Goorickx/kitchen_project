@@ -9,28 +9,46 @@
         <link rel="stylesheet" href="./style.css">
         <script src="./exec/exec.js" type="module"></script>
         <script src="./exec/dark_mode.js" type="module"></script>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+                }
+        </script>
     </head>
     <body>
         <div class="content">
-            <nav>
-                <a href="#">
-                    <img src="imgs/logo la bonne frite.png" alt="logo">
-                </a>
-                <img class="logo-burger" src="imgs/menu.png" alt="menu">
-                <div class="menu_desktop">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#food">Food</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#" class="order">Order</a></li>
-                    </ul>
+            <div class="test">
+                <div class="topnav">
+                    <a href="#">
+                        <img src="imgs/logo la bonne frite.png" alt="logo">
+                    </a>
+                    <a href="javascript:void(0);" class = "icon" onclick="myFunction()">
+                        <img class="logo-burger" src="imgs/menu.png" alt="menu">
+                    </a>
+                    <div class="switch">
+
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                    <div class="menu_desktop" id="myLinks">
+                        <a href="#">Home</a>
+                        <a href="#food">Food</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#" class="order">Order</a>
+                    </div>
                 </div>
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
-            </nav>
-            <div class="carrousel">
+                <script>
+
+                </script>
+            </div>
+            <div class="carrousel" style="padding-top:10vw">
                 <button class="fl_gr">
                 </button>
                 <button class="fl_gr">
