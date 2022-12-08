@@ -5,6 +5,9 @@ body {
   padding: 0;
 }
 body .content nav {
+  height: 10vw;
+  position: fixed;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -60,7 +63,7 @@ body .content nav .menu_desktop {
     font-size: 120%;
   }
   body .content nav .menu_desktop ul li a {
-    color: black;
+    color: var(--font-color);
     text-decoration: none;
   }
   body .content nav .menu_desktop ul li a:hover {
@@ -87,7 +90,7 @@ body .content .carrousel {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 15vw;
 }
 body .content .carrousel .fl_gr {
   width: 30%;
@@ -468,4 +471,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
