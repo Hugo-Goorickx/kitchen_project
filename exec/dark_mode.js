@@ -82,10 +82,20 @@ function light(fl_gc, fl_dr)
  */
 function changeColor()
 {
+    let tmp = document.getElementsByClassName('poubelle');
     if (actualTheme === 'dark')
+    {
+        for (let elem of tmp)
+            elem.setAttribute('src', "imgs/poubelle-blanc.png");
         light(gen_fleche('imgs/white_arrow_left.png'), gen_fleche('imgs/white_arrow_right.png'));
+
+    }
     else if (actualTheme === 'light')
+    {
+        for (let elem of tmp)
+            elem.setAttribute('src', "imgs/poubelle-noir.png");
         light(gen_fleche('imgs/black_arrow_left.png'), gen_fleche('imgs/black_arrow_right.png'));
+    }
 }
 
 /////////////////////////////////////////////

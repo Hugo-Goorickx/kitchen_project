@@ -73,7 +73,7 @@ body .commande .buy {
   cursor: pointer;
   font-size: 15px;
   padding: 5px 25px;
-  width: 25%;
+  width: 25vw;
   margin-bottom: 5%;
   display: flex;
   justify-content: center;
@@ -107,9 +107,47 @@ body .content .test .topnav a.icon {
   right: 22vw;
   top: 7vw;
 }
-body .content .test .topnav a.icon img {
-  height: 100%;
-  width: 100%;
+body .content .test .topnav a.icon .btn2 {
+  transition-duration: 0.5s;
+}
+body .content .test .topnav a.icon .btn2 .icon {
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 8px;
+  width: 60px;
+  top: 30px;
+  background-color: var(--font-color);
+}
+body .content .test .topnav a.icon .btn2 .icon:before {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 60px;
+  height: 8px;
+  background-color: var(--font-color);
+  content: "";
+  top: -20px;
+}
+body .content .test .topnav a.icon .btn2 .icon:after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 60px;
+  height: 8px;
+  background-color: var(--font-color);
+  content: "";
+  top: 20px;
+}
+body .content .test .topnav a.icon .btn2.open .icon {
+  transition-duration: 0.5s;
+  background: transparent;
+}
+body .content .test .topnav a.icon .btn2.open .icon:before {
+  transform: rotateZ(45deg) scaleX(1.25) translate(13px, 13px);
+}
+body .content .test .topnav a.icon .btn2.open .icon:after {
+  transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px);
+}
+body .content .test .topnav a.icon .btn2:hover {
+  cursor: pointer;
 }
 body .content .test .topnav a:hover {
   color: black;
@@ -534,6 +572,7 @@ html {
 
 [data-theme=light] {
   --bg-color-nav: rgba(231, 231, 231, 0.907);
+  --font-color:#201f1f;
 }
 
 .switch {
