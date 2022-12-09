@@ -63,14 +63,7 @@ body .commande .total {
   text-align: center;
   font-size: 125%;
 }
-@media screen and (min-width: 1024px) {
-  body .commande .btn {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-}
-body .commande .btn .buy {
+body .commande .buy {
   font-family: "Roboto", sans-serif;
   color: white;
   text-align: center;
@@ -85,12 +78,7 @@ body .commande .btn .buy {
   display: flex;
   justify-content: center;
 }
-@media screen and (min-width: 1024px) {
-  body .commande .btn .buy {
-    width: 25%;
-  }
-}
-body .commande .btn .buy:hover {
+body .commande .buy:hover {
   background-color: white;
   color: #fc6612;
 }
